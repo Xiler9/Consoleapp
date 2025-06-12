@@ -59,13 +59,14 @@ namespace ConsoleApp1
             last_names.Add("Щербакова");
             last_names.Add("Ященко");
             Sorter sorter = new Sorter(last_names);   //иницилизация класса сортровщика
+            sorter.Notify += sorter.Sort;
             Console.WriteLine("Введите 1 или 2, где 1 сортировка А-Я, а 2 сортировка Я-А).");
             byte typeOfSort = byte.Parse(Console.ReadLine());   //записывание типа сортировки
-            if (typeOfSort != 1 && typeOfSort != 2) throw new MyCustomException();   //проверка на правильность набора
-            var sorted_last_names = sorter.Sort(typeOfSort);   //получение отсортированного списка
-            for (int i = 0; i < sorted_last_names.Count; i++)
+            if (typeOfSort != 1 && typeOfSort != 2) throw new MyCustomException();
+            sorter.RaiseEvent(typeOfSort);
+            foreach (string last_name in sorter.sortedList)
             {
-                Console.WriteLine(sorted_last_names[i]);   //вывод нового списка
+                Console.WriteLine(last_name);
             }
         }
     }
