@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\MyCustomException.cs" />
+    <Compile Include="Classes\Calculator.cs" />
+    <Compile Include="Classes\Logger.cs" />
     <Compile Include="Classes\Program.cs" />
-    <Compile Include="Classes\Sorter.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\ISumer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
